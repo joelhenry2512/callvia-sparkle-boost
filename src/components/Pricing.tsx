@@ -87,54 +87,59 @@ const Pricing = () => {
           {plans.map((plan, index) => (
             <div
               key={index}
-              className={`fade-up-element opacity-0 animation-delay-${(index + 1) * 200} relative bg-card rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border ${
+              className={`fade-up-element opacity-0 animation-delay-${(index + 1) * 200} relative bg-card rounded-2xl p-8 shadow-lg hover:shadow-glow transition-all duration-500 transform hover:-translate-y-3 hover:scale-105 border ${
                 plan.popular
-                  ? "border-primary shadow-glow scale-105"
+                  ? "border-primary shadow-glow scale-105 glass-morphism"
                   : "border-border/50 hover:border-primary/50"
-              }`}
+              } overflow-hidden group`}
             >
-              {plan.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-hero text-primary-foreground px-4 py-1 rounded-full text-sm font-semibold shadow-lg">
-                  Most Popular
+              {/* Animated background gradient on hover */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
+              <div className="relative z-10">
+                {plan.popular && (
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-hero text-primary-foreground px-4 py-1 rounded-full text-sm font-semibold shadow-lg">
+                    Most Popular
+                  </div>
+                )}
+
+                <div className="mb-6">
+                  <h3 className="text-2xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">{plan.name}</h3>
+                  <p className="text-muted-foreground">{plan.description}</p>
                 </div>
-              )}
 
-              <div className="mb-6">
-                <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
-                <p className="text-muted-foreground">{plan.description}</p>
-              </div>
-
-              <div className="mb-8">
-                <div className="flex items-baseline gap-1">
-                  <span className="text-5xl font-bold bg-gradient-hero bg-clip-text text-transparent">
-                    {plan.price}
-                  </span>
-                  <span className="text-muted-foreground">{plan.period}</span>
+                <div className="mb-8">
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-5xl font-bold bg-gradient-hero bg-clip-text text-transparent">
+                      {plan.price}
+                    </span>
+                    <span className="text-muted-foreground">{plan.period}</span>
+                  </div>
                 </div>
+
+                <ul className="space-y-4 mb-8">
+                  {plan.features.map((feature, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <div className="bg-gradient-hero rounded-full w-5 h-5 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300">
+                        <Check className="w-3 h-3 text-primary-foreground" />
+                      </div>
+                      <span className="text-foreground/80">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <Button
+                  className={`w-full transition-all duration-500 ${
+                    plan.popular
+                      ? "bg-gradient-hero hover:scale-105 hover:shadow-glow text-primary-foreground shadow-lg"
+                      : "hover:scale-105"
+                  }`}
+                  variant={plan.popular ? "default" : "outline"}
+                  size="lg"
+                >
+                  {plan.price === "Custom" ? "Contact Sales" : "Get Started"}
+                </Button>
               </div>
-
-              <ul className="space-y-4 mb-8">
-                {plan.features.map((feature, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <div className="bg-gradient-hero rounded-full w-5 h-5 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <Check className="w-3 h-3 text-primary-foreground" />
-                    </div>
-                    <span className="text-foreground/80">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <Button
-                className={`w-full ${
-                  plan.popular
-                    ? "bg-gradient-hero hover:opacity-90 text-primary-foreground shadow-lg hover:shadow-glow"
-                    : ""
-                }`}
-                variant={plan.popular ? "default" : "outline"}
-                size="lg"
-              >
-                {plan.price === "Custom" ? "Contact Sales" : "Get Started"}
-              </Button>
             </div>
           ))}
         </div>

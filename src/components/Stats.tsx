@@ -67,12 +67,12 @@ const Stats = () => {
           {badges.map((badge, index) => (
             <div
               key={index}
-              className={`fade-up-element opacity-0 animation-delay-${(index + 5) * 200} flex items-center gap-3 bg-card rounded-xl px-6 py-4 shadow-md border border-border/50`}
+              className={`fade-up-element opacity-0 animation-delay-${(index + 5) * 200} flex items-center gap-3 bg-card rounded-xl px-6 py-4 shadow-md border border-border/50 hover:shadow-glow hover:scale-105 hover:border-primary/50 transition-all duration-500 group cursor-pointer`}
             >
-              <div className="bg-gradient-hero rounded-lg w-10 h-10 flex items-center justify-center">
+              <div className="bg-gradient-hero rounded-lg w-10 h-10 flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
                 <badge.icon className="w-5 h-5 text-primary-foreground" />
               </div>
-              <span className="font-semibold">{badge.label}</span>
+              <span className="font-semibold group-hover:text-primary transition-colors duration-300">{badge.label}</span>
             </div>
           ))}
         </div>

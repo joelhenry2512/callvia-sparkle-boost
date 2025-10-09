@@ -71,14 +71,19 @@ const Features = () => {
           {features.map((feature, index) => (
             <div
               key={index}
-              className={`fade-up-element opacity-0 animation-delay-${(index % 3 + 1) * 200} group bg-card rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-border/50 hover:border-primary/50`}
+              className={`fade-up-element opacity-0 animation-delay-${(index % 3 + 1) * 200} group bg-card rounded-2xl p-8 shadow-lg hover:shadow-glow transition-all duration-500 transform hover:-translate-y-3 hover:scale-105 border border-border/50 hover:border-primary/50 relative overflow-hidden`}
             >
-              <div className="bg-gradient-hero rounded-xl w-14 h-14 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                <feature.icon className="w-7 h-7 text-primary-foreground" />
-              </div>
+              {/* Hover gradient effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               
-              <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
-              <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
+              <div className="relative z-10">
+                <div className="bg-gradient-hero rounded-xl w-14 h-14 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-md group-hover:shadow-glow">
+                  <feature.icon className="w-7 h-7 text-primary-foreground" />
+                </div>
+                
+                <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors duration-300">{feature.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
+              </div>
             </div>
           ))}
         </div>
