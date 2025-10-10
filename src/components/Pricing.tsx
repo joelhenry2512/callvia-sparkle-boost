@@ -15,14 +15,17 @@ const plans = [
       "Email support",
       "Basic analytics",
     ],
+    comingSoon: true,
   },
   {
     name: "Professional",
-    price: "$597",
-    period: "/month",
-    description: "Most popular for growing agencies",
+    price: "Free",
+    period: "3-month trial",
+    description: "Start with a free trial",
     features: [
-      "150 AI calls per month",
+      "3 months free trial",
+      "$0.20 per call minute (usage-based)",
+      "After 25 appointments: $2,000 one-time",
       "Advanced lead qualification",
       "Calendar integration",
       "Priority support",
@@ -47,6 +50,7 @@ const plans = [
       "Advanced AI customization",
       "Dedicated account manager",
     ],
+    comingSoon: true,
   },
 ];
 
@@ -91,8 +95,17 @@ const Pricing = () => {
                 plan.popular
                   ? "border-primary shadow-glow scale-105 glass-morphism"
                   : "border-border/50 hover:border-primary/50"
-              } overflow-hidden group`}
+              } overflow-hidden group ${plan.comingSoon ? "blur-sm opacity-60 pointer-events-none" : ""}`}
             >
+              {/* Coming Soon Badge */}
+              {plan.comingSoon && (
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
+                  <div className="bg-gradient-hero text-primary-foreground px-6 py-3 rounded-full text-lg font-bold shadow-2xl">
+                    Coming Soon
+                  </div>
+                </div>
+              )}
+
               {/* Animated background gradient on hover */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               
@@ -128,17 +141,31 @@ const Pricing = () => {
                   ))}
                 </ul>
 
-                <Button
-                  className={`w-full transition-all duration-500 ${
-                    plan.popular
-                      ? "bg-gradient-hero hover:scale-105 hover:shadow-glow text-primary-foreground shadow-lg"
-                      : "hover:scale-105"
-                  }`}
-                  variant={plan.popular ? "default" : "outline"}
-                  size="lg"
-                >
-                  {plan.price === "Custom" ? "Contact Sales" : "Get Started"}
-                </Button>
+                {plan.comingSoon ? (
+                  <Button
+                    className="w-full"
+                    variant="outline"
+                    size="lg"
+                    disabled
+                  >
+                    Coming Soon
+                  </Button>
+                ) : (
+                  <Button
+                    className={`w-full transition-all duration-500 ${
+                      plan.popular
+                        ? "bg-gradient-hero hover:scale-105 hover:shadow-glow text-primary-foreground shadow-lg"
+                        : "hover:scale-105"
+                    }`}
+                    variant={plan.popular ? "default" : "outline"}
+                    size="lg"
+                    asChild
+                  >
+                    <a href="https://dashboard.callvia.ai/client-signup" target="_blank" rel="noopener noreferrer">
+                      Start Free Trial
+                    </a>
+                  </Button>
+                )}
               </div>
             </div>
           ))}
