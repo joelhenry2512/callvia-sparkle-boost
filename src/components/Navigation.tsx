@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { Phone } from "lucide-react";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -27,9 +28,12 @@ const Navigation = () => {
     >
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <h1 className="text-2xl font-bold bg-gradient-hero bg-clip-text text-transparent">
-            CallVia
-          </h1>
+          <div className="flex items-center gap-2">
+            <Phone className="w-6 h-6 text-primary" />
+            <h1 className="text-2xl font-bold bg-gradient-hero bg-clip-text text-transparent">
+              CallVia
+            </h1>
+          </div>
           
           <div className="hidden md:flex items-center gap-8">
             <button
