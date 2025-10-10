@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react";
 const plans = [
   {
     name: "Starter",
-    price: "$297",
+    price: "$1995",
     period: "/month",
     description: "Perfect for getting started",
     features: [
