@@ -20,10 +20,10 @@ const plans = [
   {
     name: "Professional",
     price: "Free Access",
-    period: "for 3 months",
-    description: "No upfront costs, pay as you grow",
+    period: "",
+    description: "3 months free • No upfront costs",
     features: [
-      "3 months of free platform access",
+      "Full platform access for 3 months",
       "Only $0.20 per call minute during trial",
       "After trial: $2,000 one-time fee after 25th appointment booked",
       "Advanced lead qualification",
