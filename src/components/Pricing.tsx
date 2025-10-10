@@ -95,7 +95,7 @@ const Pricing = () => {
                 plan.popular
                   ? "border-primary shadow-glow scale-105 glass-morphism"
                   : "border-border/50 hover:border-primary/50"
-              } overflow-hidden group ${plan.comingSoon ? "blur-md opacity-60 pointer-events-none" : ""}`}
+              } overflow-hidden group ${plan.comingSoon ? "blur-sm opacity-60 pointer-events-none" : ""}`}
             >
               {/* Coming Soon Badge */}
               {plan.comingSoon && (
