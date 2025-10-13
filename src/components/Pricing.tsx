@@ -24,7 +24,7 @@ const plans = [
     description: "3 months free • No upfront costs",
     features: [
       "Full platform access for 3 months",
-      "Only $0.20 per call minute during trial",
+      "Only $0.25 per call minute during trial",
       "After trial: $2,000 one-time fee after 25th appointment booked",
       "Advanced lead qualification",
       "Calendar integration",
