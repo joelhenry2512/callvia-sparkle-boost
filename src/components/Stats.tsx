@@ -5,7 +5,7 @@ const stats = [
   { label: "Active Agents", value: "300+", icon: null },
   { label: "Show Rate", value: "85%", icon: null },
   { label: "Clients Reached", value: "50K+", icon: null },
-  { label: "ROI Average", value: "8.5x", icon: null },
+  { label: "ROI Average", value: "23x", icon: null },
 ];
 
 const badges = [
