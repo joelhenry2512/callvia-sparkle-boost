@@ -57,6 +57,9 @@ const Navigation = () => {
           </div>
 
           <div className="flex items-center gap-3">
+            <Button onClick={() => scrollToSection("pricing")}>
+              Start Now
+            </Button>
             <Button
               variant="ghost"
               asChild
@@ -64,9 +67,6 @@ const Navigation = () => {
               <a href="https://dashboard.callvia.ai/login" target="_blank" rel="noopener noreferrer">
                 Login
               </a>
-            </Button>
-            <Button onClick={() => scrollToSection("pricing")}>
-              Start Now
             </Button>
           </div>
         </div>
