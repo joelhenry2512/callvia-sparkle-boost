@@ -21,9 +21,9 @@ const plans = [
     name: "Professional",
     price: "Free Access",
     period: "",
-    description: "3 months free • No upfront costs",
+    description: "14 days free • No upfront costs",
     features: [
-      "Full platform access for 3 months",
+      "Full platform access for 14 days",
       "Only $0.25 per call minute during trial",
       "After trial: $2,000 one-time fee after 25th appointment booked",
       "Advanced lead qualification",
